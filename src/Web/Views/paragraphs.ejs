@@ -1,0 +1,82 @@
+<%- include('./Blocks/Header.ejs', { Bumper, user, Page, Redirect: "/paragraph" }) %>
+<link rel="stylesheet" href="https://mythicalbots.xyz/css/bots.css">
+
+<div class="py-5 text-center filter-dark"  style="background-image: url('https://cdn.discordapp.com/icons/521461252317249537/a6fdef19571d5ca8bc9e26810072b803.png?size=128');background-size:cover;background-repeat:no-repeat;">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<div class="d-lg-none"></div>
+<center>
+<img class="img-fluid rounded-circle mx-auto" style="margin-bottom: 18px; background-color: #fff;" src="<%= avatar %>">
+<h1 style="font-size: 15px;"><%= author %></h1>
+  <% if(!para){ %>
+  <h1 style="font-size: 15px;">Write a paragraph!</h1>
+  <% } else { %>
+<h6>???</h6>
+  <% } %>
+</center>
+</div>
+</div>
+</div>
+</div>
+<div class="py-5 bg-none" style="background:#2C2F33;">
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+
+<% if(para){ %>
+
+
+
+<p>
+  <%= para %>
+</p>
+
+<% } else { %>
+
+<% } %>
+<% if(user){ %>
+<% if(para){ %>
+<% if(staff.includes(user.id)){ %>
+
+<a id="edit" href="/paragraphs/<%= Key %>/admin/edit" class="btn btn-sm btn-outline-yellow" aria-hidden="true">Admin Edit<i class="fa fa-edit ml-2"></i></a> 
+
+<% } %>
+  
+  <% if(Alert === "no") { %>
+  
+   <br> <div class="container">
+ <center>
+   <div class="row" role="alert">
+     <div class="col-md-12" role="alert">
+       <div class="alert alert-primary alert-danger" role="alert">
+         <h4 class="alert-heading">Oops, there is a problem..</h4>
+         <p class="mb-0"><bold>This bot has not been approved! <br> So be on the lookout for odd things!</bold></p>
+      </div>
+    </div>
+  </div>
+ </center>
+</div>
+  
+  <% } %>
+  
+<% } %>
+<% if(!para){ %>
+<!-- Add /edit button for someone to edit the paragraph. -->
+<center>  <h1 style="font-size: 15px;">Do you want write, <%= author %> a paragaph? </h1>
+<a id="edit" href="/paragraphs/<%= Key %>/edit" class="btn btn-sm btn-outline-yellow" aria-hidden="true">Click me to write!<i class="fa fa-edit ml-2"></i></a> </center>     
+<% } %>
+<% } else { %>
+<% if(para){ console.log("Paragraph Done") } else { %>
+<br>
+<center><h1 style="font-size: 15px;">Please login to edit!</h1>
+  <a class="btn btn-primary btn-lg enabled" role="button" href="/login">Login <i  aria-hidden="true"></i></a>
+</center>
+<% } %>
+<% } %>
+  </div>
+  </div>
+  </div>
+  </div>
+
+<%- include('./Blocks/Footer.ejs') %>
