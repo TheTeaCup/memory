@@ -54,7 +54,7 @@ passport.use(new strategy({
 }));
 
 app.use(session({
-    store: new MongoStore({ url: 'mongodb://mbl:nEoAD6hrWqagc23M@mbl-shard-00-00-6xz1r.mongodb.net:27017,mbl-shard-00-01-6xz1r.mongodb.net:27017,mbl-shard-00-02-6xz1r.mongodb.net:27017/test?ssl=true&replicaSet=MBL-shard-0&authSource=admin&retryWrites=true&w=majority' }),
+    store: new MongoStore({ url: 'mongo' }),
     secret: 'FROPT',
     resave: false,
     saveUninitialized: false
