@@ -1,0 +1,46 @@
+<%- include('./Blocks/Header.ejs', { Bumper, user, Page, Redirect: "/paragraphs" }) %>
+<link rel="stylesheet" href="https://mythicalbots.xyz/css/bots.css">
+
+
+  
+  <% if(Data) { %>
+<center>
+  <br>
+  <h5 class="sub">
+    All of our current people waiting for a paragraph!
+  </h5>
+</center>
+
+<div class="container">	
+  <div class="block-center"> 
+    <% for(var i=0; i < Data.length; i++) { %>
+    <div class="card server-block level1">
+      <div class="card-body"> 
+        <% if(Data[i].new === "yes") { %> 
+        <span class="badges2" style="background: #ee6b6b">New!</span> <% } %> 
+        <% if(Data[i].status === "Featured") { %> 
+        <span class="badges2" style="background: gold">Featured</span> 
+        <% } else if(Data[i].status === "Verified") { %> 
+        <span class="badges1" style="background: #7289DA">Verified</span> 
+        <% } else { %> <span class="badges0">normal</span> <% } %> 
+        <div>	
+         	<a href="/paragraphs/<%= Data[i].id %>"><img class="card-avatar" src="<%= Data[i].avatarURL %>" onerror="this.onerror=null;this.src='/avatar.jpg';"></a>
+			  </div>
+			    <h5 class="card-title" title="<%= Data[i].tag %>"><%= Data[i].tag %></h5>
+			    <h6 class="card-subtitle mb-2 text-muted"><!--Not For this --></h6>
+			    <p class=""><div class="le card-text description"><center>Write me a paragraph!</center></div></p>
+			    <div class="server-bottom">
+				    <span class="members"><i class="fas fa-users"></i><%= (i + 1).toLocaleString() %></span>
+				    <a href="/paragraphs/<%= Data[i].id %>/" class="btn btn-success join" rel="nofollow" target="blank">View</a>
+				    <a href="/paragraphs/<%= Data[i].id %>" style="background:#fb9b9e" class="btn btn-r info"><i class="fas fa-info" style="padding:0;"></i></a>
+			
+      </div> 
+    </div>	
+  </div>  
+  <% } %> 
+  </div>	
+</div> 
+<% } else { %>
+<center><br><h5 class="sub">Sorry no bots were found. <br> This might be a code issue please contact an admin.</h5></center><% } %>
+  
+  <%- include('./Blocks/Footer.ejs') %>

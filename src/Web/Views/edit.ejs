@@ -1,0 +1,67 @@
+<%- include('./Blocks/Header.ejs', { Bumper:bot, user, Page, Redirect:
+"/paragraph" }) %>
+<link rel="stylesheet" href="https://mythicalbots.xyz//css/form.css" />
+<br />
+
+<div class="row">
+  <div class="col col-4">
+    <div class="card" style="width: 318px;">
+      <img
+        class="card-img-top"
+        style="width: 100%;"
+        src="<%= avatar %>"
+        alt="<%= author %>"
+      />
+
+      <div class="card-body">
+        <h4 class="card-title"><%= author %></h4>
+        <p class="card-text" id="guildCreate">
+          Witing a paragraph for, <%= author %>
+        </p>
+        <ul class="list-group list-group-flush" style="width: 100%">
+          <li class="list-group-item" style="width: 100%">
+            <t
+              ><strong>Notice:</strong> We are a sfw place.<br />
+              So please leave a polite response to someone, otherwise your
+              account will be suspeneded
+            </t>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>  
+  
+    <div class="container">
+   <div id="errormessage"></div>
+   <div class="col-lg-7 card server-form-panel">
+      <article class="card-body">
+         <form action="" method="post" role="form">
+            <input type="hidden" name="id" value="<%= author %>">
+           
+           
+              <label for="write">Paragraph</label>
+      <br>
+      <div class="form-group">
+        
+        <textarea maxlength=150 name="paragraph" placeholder="Write <%= author %> a paragraph." class="form-control" rows="3" value="<%= value %>" required></textarea>
+      </div> 
+           
+             <div class="form-group">
+                 <button type="submit" class="btn btn-primary " role="button">Save Changes <i class="fa fa-fw fa-save" aria-hidden="true"></i></button>
+</div>
+         </form>
+      </article>
+   </div>
+</div>
+  
+</div>
+
+
+
+<style>
+  label {
+    color: #db1348;
+  }
+</style>
+
+<%- include('./Blocks/Footer.ejs') %>
